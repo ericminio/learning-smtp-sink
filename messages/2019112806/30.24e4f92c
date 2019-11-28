@@ -1,0 +1,20 @@
+X-Client-Addr: 172.22.0.1
+X-Client-Proto: ESMTP
+X-Helo-Args: [IPv6:::1]
+X-Mail-Args: <eric@example.com>
+X-Rcpt-Args: <titi@example.com>
+Received: from [IPv6:::1] ([172.22.0.1])
+	by smtp-sink (smtp-sink) with ESMTP id 24e4f92c;
+	Thu, 28 Nov 2019 06:30:19 +0000 (GMT)
+From: Eric <eric@example.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (Mac OS X Mail 10.1 \(3251\))
+Subject: hi
+Message-Id: <58CA47BC-A4CC-4A76-9245-2956346D4CFB@example.com>
+Date: Wed, 27 Nov 2019 22:30:19 -0800
+To: titi@example.com
+X-Mailer: Apple Mail (2.3251)
+
+hello world
+

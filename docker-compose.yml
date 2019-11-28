@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  smtp:
+    build: .
+    image: smtp:ready
+    container_name: smtp
+    ports:
+      - "25:25"
+    volumes:
+      - ./messages:/tmp

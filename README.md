@@ -1,3 +1,3 @@
 # learning-smtp-sink
 
-TDD sometimes call for a fake smtp server
+TDD sometimes calls for a fake smtp server

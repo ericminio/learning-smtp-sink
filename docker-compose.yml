@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+  
   smtp:
     build: .
     image: smtp:ready
@@ -9,3 +10,10 @@ services:
       - "25:25"
     volumes:
       - ./messages:/tmp
+
+  bash:
+    build: ./support/testing
+    image: bash:alpine
+    container_name: bash
+    volumes:
+      - .:/usr/local/src

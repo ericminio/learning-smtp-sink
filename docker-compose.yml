@@ -3,7 +3,7 @@ version: '3'
 services:
   
   smtp:
-    build: .
+    build: smtp-sink
     image: smtp:ready
     container_name: smtp
     ports:
@@ -12,7 +12,8 @@ services:
       - ./messages:/tmp
 
   node:
-    image: ericminio/node
+    build: node
+    image: node:ready
     container_name: node
     volumes:
       - .:/home/dev/app

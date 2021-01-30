@@ -11,9 +11,9 @@ services:
     volumes:
       - ./messages:/tmp
 
-  bash:
-    build: ./support/testing
-    image: bash:alpine
-    container_name: bash
+  node:
+    image: ericminio/node
+    container_name: node
     volumes:
-      - .:/usr/local/src
+      - .:/home/dev/app
+    working_dir: /home/dev/app

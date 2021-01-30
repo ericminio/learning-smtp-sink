@@ -1,0 +1,10 @@
+X-Client-Addr: 172.23.0.2
+X-Client-Proto: ESMTP
+X-Helo-Args: smtp
+X-Mail-Args: <from@sender.com>
+X-Rcpt-Args: <to@recipient.com>
+Received: from smtp ([172.23.0.2])
+	by smtp-sink (smtp-sink) with ESMTP id 130deaed;
+	Sat, 30 Jan 2021 22:50:05 +0000 (GMT)
+hello world
+

@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://www.travis-ci.com/ericminio/learning-smtp-sink.svg?branch=master)](https://www.travis-ci.com/ericminio/learning-smtp-sink)",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha *.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericminio/learning-smtp-sink.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericminio/learning-smtp-sink/issues"
+  },
+  "homepage": "https://github.com/ericminio/learning-smtp-sink#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "smtp-client": "^0.3.3"
+  }
+}

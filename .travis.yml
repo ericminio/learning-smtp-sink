@@ -5,4 +5,4 @@ services:
 script:
     - docker-compose up -d smtp
     - sleep 5
-    - docker-compose run --rm node ./send.sh 
+    - docker-compose run --rm ci

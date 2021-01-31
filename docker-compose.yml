@@ -11,10 +11,8 @@ services:
     volumes:
       - ./messages:/tmp
 
-  node:
+  ci:
     build: node
     image: node:ready
     container_name: node
-    volumes:
-      - ./node:/usr/local/src
-    working_dir: /usr/local/src
+    command: ./node/send.sh

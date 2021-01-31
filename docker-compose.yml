@@ -5,7 +5,7 @@ services:
   smtp:
     build: 
       context: ./demo
-      dockerfile: ./smtp-link/Dockerfile
+      dockerfile: ./smtp-sink/Dockerfile
     image: smtp:ready
     container_name: smtp
     ports:

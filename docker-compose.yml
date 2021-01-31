@@ -3,18 +3,22 @@ version: '3.7'
 services:
   
   smtp:
-    build: smtp-sink
+    build: 
+      context: ./demo
+      dockerfile: ./smtp-link/Dockerfile
     image: smtp:ready
     container_name: smtp
     ports:
       - "25:25"
     volumes:
-      - ./messages:/tmp
+      - ./demo/inbox:/tmp
 
   ci:
     build: 
-      context: .
+      context: ./demo
       dockerfile: ./node/Dockerfile
     image: node:ready
     container_name: node
     command: ./node/send.sh
+    volumes: 
+      - ./demo/inbox:/usr/local/src/inbox

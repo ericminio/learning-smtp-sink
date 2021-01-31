@@ -20,28 +20,12 @@ describe('sent email', ()=>{
 
     it('is readable', async ()=>{
         await sendMessage('hello world')
-        let messages = await allReceivedMessages()
-        let last = messages[messages.length-1]
+        
+        let inbox = '/usr/local/src/inbox'
+        let folder = fs.readdirSync(inbox)[0]        
+        let message = fs.readdirSync(path.join(inbox, folder))[0]
+        let content = fs.readFileSync(path.join(inbox, folder, message)).toString()
 
-        expect(last).to.contain('hello world')
+        expect(content).to.contain('hello world')
     })
 })
-
-let allReceivedMessages = async ()=> {
-    await new Promise((resolve, reject)=>{
-        setTimeout(resolve, 1*1000)
-    })
-    let inbox = './messages'
-    let messages = []
-    let minutes = fs.readdirSync(inbox)
-    for (var m=0; m<minutes.length; m++) {
-        let minute = minutes[m]
-        let seconds = fs.readdirSync(path.join(inbox, minute))
-        for (var i=0; i<seconds.length; i++) {
-            let second = seconds[i];
-            let message = fs.readFileSync(path.join(inbox, minute, second)).toString()
-            messages.push(message)
-        }
-    }
-    return messages;
-}

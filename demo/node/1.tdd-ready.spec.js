@@ -2,7 +2,7 @@ const { expect } = require('chai')
 const fs = require('fs')
 const path = require('path')
 
-describe.only('make sure first that', ()=>{
+describe('make sure first that', ()=>{
 
     describe('mocha', ()=>{
 
@@ -16,9 +16,9 @@ describe.only('make sure first that', ()=>{
         it('is mounted', ()=>{
             let inbox = '/usr/local/src/inbox'
             let files = fs.readdirSync(inbox)
-            expect(files).to.deep.equal(['README.md'])
+            expect(files).to.include('README.md')
 
-            let content = fs.readFileSync(path.join(inbox, files[0])).toString()
+            let content = fs.readFileSync(path.join(inbox, 'README.md')).toString()
             expect(content).to.equal('REceived messages will be stored here')
         })
     })

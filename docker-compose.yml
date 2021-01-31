@@ -16,5 +16,5 @@ services:
     image: node:ready
     container_name: node
     volumes:
-      - .:/home/dev/app
-    working_dir: /home/dev/app
+      - ./node:/usr/local/src
+    working_dir: /usr/local/src

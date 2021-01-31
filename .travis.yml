@@ -4,5 +4,6 @@ services:
     - docker
 script:
     - docker-compose up -d smtp
-    - sleep 5
+    - sleep 15
+    - docker logs smtp
     - docker-compose run --rm ci

@@ -16,10 +16,8 @@ describe('make sure first that', ()=>{
         it('is mounted', ()=>{
             let inbox = '../inbox'
             let files = fs.readdirSync(inbox)
-            expect(files).to.include('README.md')
-
-            let content = fs.readFileSync(path.join(inbox, 'README.md')).toString()
-            expect(content).to.equal('REceived messages will be stored here')
+            
+            expect(files).to.deep.equal([])
         })
     })
 })

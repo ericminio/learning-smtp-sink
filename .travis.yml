@@ -10,6 +10,7 @@ script:
     - ./demo/smtp-sink/wait-for-smtp.sh
     - docker logs smtp
     - docker-compose ps
+    - ls -la demo/inbox
     - cd demo/node
     - npm install
     - npm test

@@ -12,13 +12,3 @@ services:
       - "5025:25"
     volumes:
       - ./demo/inbox:/tmp
-
-  ci:
-    build: 
-      context: ./demo
-      dockerfile: ./node/Dockerfile
-    image: node:ready
-    container_name: node
-    command: ./node/send.sh
-    volumes: 
-      - ./demo/inbox:/usr/local/src/inbox

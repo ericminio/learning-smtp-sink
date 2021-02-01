@@ -4,16 +4,12 @@ node_js:
     - node
 services:
     - docker
-script:
-    - docker-compose --version
+before_script:
     - docker-compose up -d smtp
     - ./demo/smtp-sink/wait-for-smtp.sh
-    - docker logs smtp
-    - docker-compose ps
-    - ls -la demo/inbox
     - sudo chmod a+w demo/inbox
-    - ls -la demo/inbox
-    - cd demo/node
+script:
+    - cd demo/client
     - npm install
     - npm test
     - docker logs smtp

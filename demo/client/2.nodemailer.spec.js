@@ -3,9 +3,9 @@ const fs = require('fs')
 const path = require('path')
 const nodemailer = require('nodemailer')
 
-describe('sent email', ()=>{
+describe('nodemailer', ()=>{
 
-    it('is readable', (done)=>{
+    it('can send email', (done)=>{
         sendMessage('greetings', 'hello world', ()=>{
             let inbox = '../inbox'
             expect(fs.readdirSync(inbox).length).to.equal(1)
@@ -13,6 +13,7 @@ describe('sent email', ()=>{
             let folder = fs.readdirSync(inbox)[0]        
             let message = fs.readdirSync(path.join(inbox, folder))[0]
             let content = fs.readFileSync(path.join(inbox, folder, message)).toString()
+            console.log(content)
     
             expect(content).to.contain('Subject: greetings')
             expect(content).to.contain('hello world')           

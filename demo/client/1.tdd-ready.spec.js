@@ -1,6 +1,5 @@
 const { expect } = require('chai')
 const fs = require('fs')
-const path = require('path')
 
 describe('make sure first that', ()=>{
 
@@ -13,7 +12,7 @@ describe('make sure first that', ()=>{
     
     describe('inbox folder', ()=>{
     
-        it('is mounted', ()=>{
+        it('is readable', ()=>{
             let inbox = '../inbox'
             let files = fs.readdirSync(inbox)
             

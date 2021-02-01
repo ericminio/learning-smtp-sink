@@ -20,7 +20,7 @@ describe('sent email', ()=>{
 
 const sendMessage = async (subject, body)=>{
     let transporter = nodemailer.createTransport({
-        host: "localhost",
+        host: "0.0.0.0",
         port: 5025,
     })
     let result = await transporter.verify()

@@ -1,31 +1,36 @@
 const { expect } = require('chai')
-const {SMTPClient} = require('smtp-client')
 const fs = require('fs')
 const path = require('path')
+const nodemailer = require('nodemailer')
 
-const sendMessage = async (body)=>{
-    let s = new SMTPClient({
-        host: 'localhost',
-        port: 5025
+const sendMessage = async (subject, body)=>{
+    let transporter = nodemailer.createTransport({
+        host: "localhost",
+        port: 5025,
     })
-    await s.connect();
-    await s.greet({hostname: 'smtp'})
-    await s.mail({from: 'from@sender.com'})
-    await s.rcpt({to: 'to@recipient.com'})
-    await s.data(body)
-    await s.quit()
+    let result = await transporter.verify()
+    expect(result).to.equal(true)
+    
+    let message = {
+        from: "sender@server.com",
+        to: "receiver@sender.com",
+        subject: subject,
+        text: body,
+    }
+    await transporter.sendMail(message)
 }
 
 describe('sent email', ()=>{
 
     it('is readable', async ()=>{
-        await sendMessage('hello world')
+        await sendMessage('greetings', 'hello world')
         
         let inbox = '../inbox'
         let folder = fs.readdirSync(inbox)[0]        
         let message = fs.readdirSync(path.join(inbox, folder))[0]
         let content = fs.readFileSync(path.join(inbox, folder, message)).toString()
 
+        expect(content).to.contain('Subject: greetings')
         expect(content).to.contain('hello world')
     })
 })

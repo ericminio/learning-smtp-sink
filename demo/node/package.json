@@ -19,6 +19,6 @@
   "dependencies": {
     "chai": "^4.2.0",
     "mocha": "^8.2.1",
-    "smtp-client": "^0.3.3"
+    "nodemailer": "^6.4.17"
   }
 }

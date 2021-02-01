@@ -3,6 +3,7 @@ language: bash
 services:
     - docker
 script:
+    - docker-compose --version
     - docker-compose up -d smtp
     - sleep 15
     - docker logs smtp

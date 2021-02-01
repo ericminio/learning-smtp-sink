@@ -21,7 +21,7 @@ describe('sent email', ()=>{
 const sendMessage = async (subject, body)=>{
     let transporter = nodemailer.createTransport({
         host: "0.0.0.0",
-        port: 5025,
+        port: 5025
     })
     let result = await transporter.verify()
     expect(result).to.equal(true)
@@ -33,5 +33,6 @@ const sendMessage = async (subject, body)=>{
         text: body,
     }
     await transporter.sendMail(message)
+    transporter.close()
 }
 

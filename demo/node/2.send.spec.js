@@ -9,6 +9,8 @@ describe('sent email', ()=>{
         sendMessage('greetings', 'hello world', ()=>{
 
             let inbox = '../inbox'
+            expect(fs.readdirSync(inbox).length).to.equal(2)
+            
             let folder = fs.readdirSync(inbox)[0]        
             let message = fs.readdirSync(path.join(inbox, folder))[0]
             let content = fs.readFileSync(path.join(inbox, folder, message)).toString()

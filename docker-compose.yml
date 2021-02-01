@@ -8,8 +8,6 @@ services:
       dockerfile: ./smtp-sink/Dockerfile
     image: smtp:ready
     container_name: smtp
-    ports:
-      - "25:25"
     volumes:
       - ./demo/inbox:/tmp
 

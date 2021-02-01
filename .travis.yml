@@ -11,7 +11,7 @@ script:
     - docker logs smtp
     - docker-compose ps
     - ls -la demo/inbox
-    - chmod a+w demo/inbox
+    - sudo chmod a+w demo/inbox
     - ls -la demo/inbox
     - cd demo/node
     - npm install

@@ -6,7 +6,7 @@ const path = require('path')
 const sendMessage = async (body)=>{
     let s = new SMTPClient({
         host: 'smtp',
-        port: 25
+        port: 5025
     })
     await s.connect();
     await s.greet({hostname: 'smtp'})

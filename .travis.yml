@@ -13,3 +13,4 @@ script:
     - cd demo/node
     - npm install
     - npm test
+    - docker logs smtp

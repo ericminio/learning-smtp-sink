@@ -24,7 +24,8 @@ const sendMessage = async (subject, body)=>{
         port: 5025
     })
     let result = await transporter.verify()
-    expect(result).to.equal(true)
+    expect(result).to.equal(true)    
+    console.log('transporter ok')
     
     let message = {
         from: "sender@server.com",
@@ -32,7 +33,9 @@ const sendMessage = async (subject, body)=>{
         subject: subject,
         text: body,
     }
-    await transporter.sendMail(message)
+    console.log('message', message)
+    result = await transporter.sendMail(message)
+    console.log('sendMail result: ', result)
     transporter.close()
 }
 

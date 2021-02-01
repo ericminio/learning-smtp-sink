@@ -14,7 +14,7 @@ describe('make sure first that', ()=>{
     describe('inbox folder', ()=>{
     
         it('is mounted', ()=>{
-            let inbox = '/usr/local/src/inbox'
+            let inbox = '../inbox'
             let files = fs.readdirSync(inbox)
             expect(files).to.include('README.md')
 

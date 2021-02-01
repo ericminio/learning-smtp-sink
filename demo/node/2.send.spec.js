@@ -5,7 +5,7 @@ const path = require('path')
 
 const sendMessage = async (body)=>{
     let s = new SMTPClient({
-        host: 'smtp',
+        host: 'localhost',
         port: 5025
     })
     await s.connect();
@@ -21,7 +21,7 @@ describe('sent email', ()=>{
     it('is readable', async ()=>{
         await sendMessage('hello world')
         
-        let inbox = '/usr/local/src/inbox'
+        let inbox = '../inbox'
         let folder = fs.readdirSync(inbox)[0]        
         let message = fs.readdirSync(path.join(inbox, folder))[0]
         let content = fs.readFileSync(path.join(inbox, folder, message)).toString()

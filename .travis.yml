@@ -1,5 +1,7 @@
 dist: xenial
-language: bash
+language: node_js
+node_js:
+    - node
 services:
     - docker
 script:
@@ -8,4 +10,6 @@ script:
     - ./demo/smtp-sink/wait-for-smtp.sh
     - docker logs smtp
     - docker-compose ps
-    - docker-compose run --rm ci
+    - cd demo/node
+    - npm install
+    - npm test
